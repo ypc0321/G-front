@@ -5,18 +5,20 @@ import Dataset from './components/dataset';
 import Defect from './components/defective';
 const { Title, Text } = Typography;
 
+import './index.less';
+
 const Home: React.FC = () => {
   return (
     <GridContent>
-      <Row gutter={24} style={{ marginTop: 24 }}>
-        <Col xl={12} lg={24} md={24} sm={24} xs={24} style={{ height: '300px' }}>
+      <Row gutter={[16, 16]}>
+        <Col className="home-col" span={12}>
           <Defect />
         </Col>
-        <Col xl={12} lg={24} md={24} sm={24} xs={24} style={{ height: '300px' }}>
+        <Col className="home-col" span={12}>
           <Dataset />
         </Col>
       </Row>
-      <div>
+      <div className="home-content">
         <Title level={3}>数据集来源</Title>
         <Text>
           使用的数据集来自开源的软件数据仓库PROMISE数据集，该数据集收集了33个项目的度量元，我们从中选取了7个Apache开源项目：Ant、Camel、jEdit、Lucene、Poi、Velocity、Xalan

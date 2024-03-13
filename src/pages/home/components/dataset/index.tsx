@@ -1,5 +1,7 @@
 import { Pie } from '@ant-design/plots';
 
+import './index.less';
+
 const Dataset = () => {
   const data = [
     {
@@ -32,27 +34,17 @@ const Dataset = () => {
     },
   ];
   const config = {
-    title: '样本数据集饼状图',
-    appendPadding: 10,
     data,
+    title: '样本数据集饼状图',
     angleField: 'value',
     colorField: 'type',
-    radius: 0.75,
+    radius: 0.8,
     label: {
-      type: 'spider',
-      labelHeight: 28,
-      content: '{name}\n{percentage}',
+      text: (d: Record<'type', string>) => `${d.type}`,
+      position: 'spider',
     },
-    interactions: [
-      {
-        type: 'element-selected',
-      },
-      {
-        type: 'element-active',
-      },
-    ],
   };
-  return <Pie {...config} />;
+  return <Pie className="home-dataset" {...config} />;
 };
 
 export default Dataset;
